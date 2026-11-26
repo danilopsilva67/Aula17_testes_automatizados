@@ -31,5 +31,6 @@ jobs:
 
 
     - name: Executar testes com Pytest e gerar relatorio de cobertura
-      run: |
-        pytest --cov=src --cov-report=term-missing tests/
+      env:
+      PYTHONPATH: .
+      run: python -m pytest --cov=src --cov-report=term-missing tests/
