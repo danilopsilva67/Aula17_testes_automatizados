@@ -36,7 +36,7 @@ def test_erro_valor_compra_invalido():
 @pytest.mark.parametrize("valor, cupom, vip, esperado", [
     (200.0, None, False, 220.00),        # Exatamente no limite do frete -> cobra R$ 20
     (200.01, None, False, 200.01),      # Acima do limite -> frete grátis
-    (222.23, "VERAO10", False, 220.01), # R$ 200.007 com desconto -> R$ 200.01 final (>200 -> frete grátis)
+    (222.23, "VERAO10", False, 200.01), # R$ 200.007 com desconto -> R$ 200.01 final (>200 -> frete grátis)
     (100.0, "verao10", True, 90.00),    # Cupom minúsculo para cliente VIP -> R$ 90 + frete grátis
 ])
 def test_cenarios_limite_e_combinados(valor, cupom, vip, esperado):
