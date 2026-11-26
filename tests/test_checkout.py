@@ -30,6 +30,10 @@ def test_erro_cupom_expirado():
 def test_erro_valor_compra_invalido():
     with pytest.raises(ValueError, match="O valor da compra deve ser maior que zero."):
         calcular_valor_final(0.0)
+        
+def test_cupom_invalido_levanta_value_error():
+    with pytest.raises(ValueError, match="Cupom invalido."):
+        calcular_valor_final(100.0, "CUPOM_QUE_NAO_EXISTE", False)
 
 
 # Teste Parametrizado (Análise de Valor Limite e Combinações)
